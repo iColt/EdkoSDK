@@ -24,9 +24,11 @@ public static class Ceazar
 
         int offsetByMod = offset % 26;
 
-        char lastChar = 'z';
-        char firstChar = 'a';
-
+        char lastCharLower = 'z';
+        char firstCharLower = 'a';
+        char firstCharUpper = 'A';
+        char lastCharUpper = 'Z';
+        char spaceChar = ' ';
 
         byte[] asciiBytes = Encoding.ASCII.GetBytes(plaintext);
         byte[] encriptedByteArray = new byte[asciiBytes.Length];
@@ -34,9 +36,29 @@ public static class Ceazar
         int i = 0;
         foreach (byte @byte in asciiBytes)
         {
-            int byteWithOffset = action == EncryptionAction.Encrypt ?
-                CalculateEncryptionChar(offsetByMod, lastChar, firstChar, @byte) :
-                CalculateDecryptionChar(offsetByMod, lastChar, firstChar, @byte);
+            if (@byte == spaceChar 
+                || @byte > lastCharLower 
+                || @byte < firstCharUpper 
+                || (@byte > lastCharUpper && @byte < firstCharLower))
+            {
+                encriptedByteArray[i] = @byte;
+                i++;
+                continue;
+            }
+
+            int byteWithOffset = 0;
+            if (@byte >= firstCharUpper && @byte <= lastCharUpper)
+            {
+                byteWithOffset = action == EncryptionAction.Encrypt ?
+               CalculateEncryptionChar(offsetByMod, lastCharUpper, firstCharUpper, @byte) :
+               CalculateDecryptionChar(offsetByMod, lastCharUpper, firstCharUpper, @byte);
+            } else
+            {
+                byteWithOffset = action == EncryptionAction.Encrypt ?
+                CalculateEncryptionChar(offsetByMod, lastCharLower, firstCharLower, @byte) :
+                CalculateDecryptionChar(offsetByMod, lastCharLower, firstCharLower, @byte);
+            }
+           
             encriptedByteArray[i] = (byte)byteWithOffset;
             i++;
         }
@@ -46,6 +68,7 @@ public static class Ceazar
 
     private static int CalculateEncryptionChar(int offsetByMod, char lastChar, char firstChar, byte @byte)
     {
+        
         var byteWithOffset = @byte + offsetByMod;
         if (byteWithOffset > lastChar)
         {
@@ -58,9 +81,9 @@ public static class Ceazar
     private static int CalculateDecryptionChar(int offsetByMod, char lastChar, char firstChar, byte @byte)
     {
         var byteWithOffset = @byte - offsetByMod;
-        if (byteWithOffset < lastChar)
+        if (byteWithOffset < firstChar)
         {
-            byteWithOffset = firstChar - (byteWithOffset + lastChar) - 1;
+            byteWithOffset = lastChar - (firstChar - byteWithOffset) + 1;
         }
 
         return byteWithOffset;
