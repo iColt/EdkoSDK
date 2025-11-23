@@ -3,7 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdkoSKD.Common", "EdkoSKD.Common\EdkoSKD.Common.csproj", "{E544EE84-CB19-4FF4-B578-15A2DB0C50F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EdkoSKD.Common", "EdkoSKD.Common\EdkoSKD.Common.csproj", "{E544EE84-CB19-4FF4-B578-15A2DB0C50F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EdkoSDK.Cryptography", "EdkoSDK.Cryptography", "{B3898864-1B1F-4ABE-8CCB-4EF3621E9301}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EdkoSDK.Cryptography", "EdkoSDK.Cryptography\EdkoSDK.Cryptography.csproj", "{2264A82A-6B2E-4765-B643-8A2A7D88490F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EdkoSDK.Cryptography.Tests", "EdkoSDK.Cryptography.Tests\EdkoSDK.Cryptography.Tests.csproj", "{55D93095-8B7C-4A7F-AB92-2B423B64AEED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{C70A181E-C54E-4179-B259-4DFA89765837}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\README.md = ..\..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +26,21 @@ Global
 		{E544EE84-CB19-4FF4-B578-15A2DB0C50F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E544EE84-CB19-4FF4-B578-15A2DB0C50F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E544EE84-CB19-4FF4-B578-15A2DB0C50F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2264A82A-6B2E-4765-B643-8A2A7D88490F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2264A82A-6B2E-4765-B643-8A2A7D88490F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2264A82A-6B2E-4765-B643-8A2A7D88490F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2264A82A-6B2E-4765-B643-8A2A7D88490F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D93095-8B7C-4A7F-AB92-2B423B64AEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D93095-8B7C-4A7F-AB92-2B423B64AEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D93095-8B7C-4A7F-AB92-2B423B64AEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D93095-8B7C-4A7F-AB92-2B423B64AEED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2264A82A-6B2E-4765-B643-8A2A7D88490F} = {B3898864-1B1F-4ABE-8CCB-4EF3621E9301}
+		{55D93095-8B7C-4A7F-AB92-2B423B64AEED} = {B3898864-1B1F-4ABE-8CCB-4EF3621E9301}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C11E155-4F38-44CE-B4E4-B2C06675B587}

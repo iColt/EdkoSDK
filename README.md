@@ -73,7 +73,7 @@ Module 1 — Foundations
 📌 Topics Covered
 
 What is cryptography?
-Terminology: plaintext, ciphertext, keys
+Terminology: plaintext, ciphertext, keys ✔
 Threat models
 Shannon’s principles
 Types of cryptography (symmetric/asymmetric/hashing)
