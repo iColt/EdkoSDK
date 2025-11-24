@@ -80,7 +80,7 @@ Types of cryptography (symmetric/asymmetric/hashing)
 
 🏗 Exercises
 
-Implement a simple Caesar cipher
+Implement a simple Caesar cipher ✔
 Implement Vigenère cipher
 Break Caesar using frequency analysis
 
