@@ -4,15 +4,15 @@ public static class Fibonacci
 {
     public static int GetElementByNumberInSequence(int n)
     {
-        if (n <= 3)
+        if (n <= 2)
         {
-            return n;
+            return 1;
         }
 
-        int previousValue = 2;
-        int result = 3;
+        int previousValue = 1;
+        int result = 1;
 
-        for (int i = 3; i < n; i++)
+        for (int i = 2; i < n; i++)
         {
             int tmp = result;
             result += previousValue;

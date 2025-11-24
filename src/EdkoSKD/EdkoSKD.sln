@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EdkoSDK.Algorithms", "EdkoS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdkoSDK.Algorithms", "EdkoSDK.Algorithms\EdkoSDK.Algorithms.csproj", "{C43F5B4E-7923-4FF4-BD89-0E8A88E3569C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdkoSKD.Algorithms.Tests", "EdkoSKD.Algorithms.Tests\EdkoSKD.Algorithms.Tests.csproj", "{9DA37009-B2AF-4424-B9EB-009B0C03AA14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{C43F5B4E-7923-4FF4-BD89-0E8A88E3569C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C43F5B4E-7923-4FF4-BD89-0E8A88E3569C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C43F5B4E-7923-4FF4-BD89-0E8A88E3569C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DA37009-B2AF-4424-B9EB-009B0C03AA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DA37009-B2AF-4424-B9EB-009B0C03AA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DA37009-B2AF-4424-B9EB-009B0C03AA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DA37009-B2AF-4424-B9EB-009B0C03AA14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{2264A82A-6B2E-4765-B643-8A2A7D88490F} = {B3898864-1B1F-4ABE-8CCB-4EF3621E9301}
 		{55D93095-8B7C-4A7F-AB92-2B423B64AEED} = {B3898864-1B1F-4ABE-8CCB-4EF3621E9301}
 		{C43F5B4E-7923-4FF4-BD89-0E8A88E3569C} = {24DF07A8-953B-435B-AF33-B9477B609D55}
+		{9DA37009-B2AF-4424-B9EB-009B0C03AA14} = {24DF07A8-953B-435B-AF33-B9477B609D55}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C11E155-4F38-44CE-B4E4-B2C06675B587}
