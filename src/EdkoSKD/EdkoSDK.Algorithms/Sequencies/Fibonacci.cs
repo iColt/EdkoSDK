@@ -20,4 +20,21 @@ public static class Fibonacci
         }
         return result;
     }
+
+    public static IEnumerable<int> GetNextFibonacciElement()
+    {
+        yield return 1;
+        yield return 1;
+
+        int previousValue = 1;
+        int currentValue = 1;
+
+        while (true)
+        {
+            int result = currentValue + previousValue;
+            yield return result;
+            previousValue = currentValue;
+            currentValue = result;
+        }
+    }
 }
