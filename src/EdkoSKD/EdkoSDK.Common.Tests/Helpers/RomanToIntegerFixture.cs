@@ -16,4 +16,10 @@ public class RomanToIntegerFixture
     {
         Assert.That(s.ConvertFromRomanToInteger(), Is.EqualTo(number));
     }
+
+    [Test]
+    public void Test_RomanToInteger_NotARoman_Throw()
+    {
+        Assert.Throws<ArgumentException>(() => { "ABC".ConvertFromRomanToInteger(); });
+    }
 }

@@ -1,4 +1,6 @@
-﻿namespace EdkoSKD.Common.Helpers;
+﻿using System.Text;
+
+namespace EdkoSKD.Common.Helpers;
 
 public static class RomanToInteger
 {
@@ -37,5 +39,24 @@ public static class RomanToInteger
         }
 
         return total;
+    }
+
+    public static string ConvertFromIntegerToRoman(this int number)
+    {
+        if(number < 0)
+        {
+            throw new NotImplementedException();
+        }
+
+        if(number == 0)
+        {
+            throw new ArgumentException("There is no zero in Roman numerals");
+        }
+
+        var sb = new StringBuilder();
+
+        int[] digits = number.ConvertToArrayOfDigits();
+
+        return sb.ToString();
     }
 }
