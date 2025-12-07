@@ -5,6 +5,7 @@ namespace EdkoSKD.Algorithms.Tests.Arrays;
 [TestFixture]
 public class SortsFixture
 {
+    [TestCase(new[] { 1, 10, 4, 8, 0, -5, 1, -100, 100, 3 })]
     [TestCase(new[] {1, 10, 4, 8, 0, -5, 1})]
     public void Test_Sorts(int[] array)
     {

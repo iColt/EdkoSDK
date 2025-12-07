@@ -40,27 +40,43 @@ public static class Sorts
         // use temp array as sort in one array is difficult
         int[] tempArr = new int[chunkSize * 2];
 
-        //while(operationCounter < chunkSize)
-        //{
-        //    if(secondChunkPointer >= array.Length || firstChunkPointer > startPos + chunkSize || secondChunkPointer > startPos + chunkSize * 2)
-        //    {
-        //        break;
-        //    }
 
-        //    if (array[firstChunkPointer] <= array[secondChunkPointer])
-        //    {
-        //        firstChunkPointer++;
-        //    } else
-        //    {
-        //        int temp = array[secondChunkPointer];
-        //        array[secondChunkPointer] = array[firstChunkPointer];
-        //        array[firstChunkPointer] = temp;
-        //        secondChunkPointer++;
-        //    }
+        while (operationCounter < chunkSize * 2)
+        {
+            if (firstChunkPointer >= startPos + chunkSize && (secondChunkPointer >= startPos + chunkSize * 2 || secondChunkPointer >= array.Length))
+            {
+                break;
+            }
 
-        //    operationCounter++;
-            
-        //}
+            if(firstChunkPointer >= startPos + chunkSize)
+            {
+                tempArr[operationCounter] = array[secondChunkPointer];
+                secondChunkPointer++;
+            } else if (secondChunkPointer >= startPos + chunkSize * 2 || secondChunkPointer >= array.Length)
+            {
+                tempArr[operationCounter] = array[firstChunkPointer];
+                firstChunkPointer++;
+            } else
+            {
+                if (array[firstChunkPointer] <= array[secondChunkPointer])
+                {
+                    tempArr[operationCounter] = array[firstChunkPointer];
+                    firstChunkPointer++;
+                }
+                else
+                {
+                    tempArr[operationCounter] = array[secondChunkPointer];
+                    secondChunkPointer++;
+                }
+            }
+
+            operationCounter++;
+        }
+       
+        for( int i = startPos; i < startPos + operationCounter; i++)
+        {
+            array[i] = tempArr[i - startPos];
+        }
     }
 
     #endregion
