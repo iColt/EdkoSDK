@@ -15,4 +15,23 @@ public static class ArrayHelpers
         return sortedA.SequenceEqual(sortedB);
     }
 
+
+    public static bool AssertArraysEqual(int[] a, int[] b)
+    {
+        if (a.Length != b.Length)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (a[i] != b[i])
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }
