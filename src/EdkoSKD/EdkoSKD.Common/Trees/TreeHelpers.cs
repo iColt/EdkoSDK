@@ -63,6 +63,12 @@ public static class TreeHelpers
             return 0;
         }
 
+        if(binaryTreeNode.left == null && binaryTreeNode.right == null)
+        {
+            tiltTreeNode.val = 0;
+            return binaryTreeNode.val;
+        }
+
         int leftSum = 0;
         if(binaryTreeNode.left != null)
         {
@@ -79,6 +85,6 @@ public static class TreeHelpers
 
         tiltTreeNode.val = Math.Abs(leftSum - rightSum);
 
-        return leftSum + rightSum;
+        return leftSum + rightSum + binaryTreeNode.val;
     }
 }
