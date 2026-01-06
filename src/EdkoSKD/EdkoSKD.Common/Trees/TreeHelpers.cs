@@ -94,7 +94,7 @@ public static class TreeHelpers
 
     #region Tree node sum
 
-    public static int FindBinaryTreeNodeSum(TreeNode node)
+    public static int FindBinaryTreeNodeSum(this TreeNode node)
     {
         if (node == null)
         {
