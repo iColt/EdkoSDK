@@ -45,6 +45,8 @@ public static class TreeHelpers
         return root;
     }
 
+    #region Tilt tree based on Binary tree
+
     public static TreeNode BuildTiltTree(this TreeNode binaryTree)
     {
         ArgumentNullException.ThrowIfNull(binaryTree);
@@ -87,4 +89,20 @@ public static class TreeHelpers
 
         return leftSum + rightSum + binaryTreeNode.val;
     }
+
+    #endregion
+
+    #region Tree node sum
+
+    public static int FindBinaryTreeNodeSum(TreeNode node)
+    {
+        if (node == null)
+        {
+            return 0;
+        }
+
+        return node.val + FindBinaryTreeNodeSum(node.left) + FindBinaryTreeNodeSum(node.right);
+    }
+
+    #endregion
 }
