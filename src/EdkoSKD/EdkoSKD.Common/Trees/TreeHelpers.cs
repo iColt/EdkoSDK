@@ -44,4 +44,41 @@ public static class TreeHelpers
 
         return root;
     }
+
+    public static TreeNode BuildTiltTree(this TreeNode binaryTree)
+    {
+        ArgumentNullException.ThrowIfNull(binaryTree);
+
+        TreeNode root = new(0);
+
+        BuildTiltTreeInternal(binaryTree, root);
+
+        return root;
+    }
+
+    private static int BuildTiltTreeInternal(TreeNode binaryTreeNode, TreeNode tiltTreeNode)
+    {
+        if(binaryTreeNode == null)
+        {
+            return 0;
+        }
+
+        int leftSum = 0;
+        if(binaryTreeNode.left != null)
+        {
+            tiltTreeNode.left = new TreeNode(0);
+            leftSum = BuildTiltTreeInternal(binaryTreeNode.left, tiltTreeNode.left);
+        }
+
+        int rightSum = 0;
+        if(binaryTreeNode.right != null)
+        {
+            tiltTreeNode.right = new TreeNode(0);
+            rightSum = BuildTiltTreeInternal(binaryTreeNode.right, tiltTreeNode.right);
+        }
+
+        tiltTreeNode.val = Math.Abs(leftSum - rightSum);
+
+        return leftSum + rightSum;
+    }
 }
