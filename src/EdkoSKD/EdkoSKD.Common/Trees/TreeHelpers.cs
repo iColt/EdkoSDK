@@ -105,4 +105,17 @@ public static class TreeHelpers
     }
 
     #endregion
+
+    #region Serialize Tree
+
+    public static string SerializeTree(this TreeNode node)
+    {
+        if (node == null)
+            return "#";
+
+        return $"{node.val},{SerializeTree(node.left)},{SerializeTree(node.right)}";
+    }
+
+
+    #endregion
 }
