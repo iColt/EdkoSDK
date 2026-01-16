@@ -1,4 +1,5 @@
 ﻿using EdkoSKD.Common.Models;
+using System.Text;
 
 namespace EdkoSKD.Common.Trees;
 
@@ -116,6 +117,46 @@ public static class TreeHelpers
         return $"{node.val},{SerializeTree(node.left)},{SerializeTree(node.right)}";
     }
 
+
+    #endregion
+
+    #region Serialize Tree 2
+
+    /// <summary>
+    /// Serialize Tree to form
+    /// 1(2)(3) from simple [1,2,3] tree
+    /// </summary>
+    /// <param name="root"></param>
+    /// <returns></returns>
+    public static string SerializeTree2(this TreeNode root)
+    {
+        StringBuilder sb = new();
+
+        PreOrderTrav(root, true);
+
+        void PreOrderTrav(TreeNode node, bool isHead = false, bool isLeft = false)
+        {
+            if (node == null)
+            {
+                if (isLeft)
+                {
+                    sb.Append("()");
+                }
+                return;
+            }
+            if (!isHead)
+            {
+                sb.Append('(');
+            }
+            sb.Append($"{node.val}");
+            PreOrderTrav(node.left, false, node.right != null);
+            PreOrderTrav(node.right);
+            if (!isHead)
+                sb.Append(")");
+        }
+
+        return sb.ToString();
+    }
 
     #endregion
 }
