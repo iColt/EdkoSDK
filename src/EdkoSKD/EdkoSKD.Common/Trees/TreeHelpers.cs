@@ -5,6 +5,8 @@ namespace EdkoSKD.Common.Trees;
 
 public static class TreeHelpers
 {
+    #region Compare two trees
+
     public static bool AreEqualTrees(TreeNode a, TreeNode b)
     {
         if (a == null && b == null) return true;
@@ -13,6 +15,10 @@ public static class TreeHelpers
 
         return AreEqualTrees(a.left, b.left) && AreEqualTrees(a.right, b.right);
     }
+
+    #endregion
+
+    #region Construct tree from array
 
     public static TreeNode Tree(int?[] values)
     {
@@ -45,6 +51,8 @@ public static class TreeHelpers
 
         return root;
     }
+
+    #endregion
 
     #region Tilt tree based on Binary tree
 
