@@ -115,16 +115,18 @@ public static class TreeHelpers
 
     #endregion
 
-    #region Serialize Tree
+    #region Serialize/Deserialize Tree
 
     public static string SerializeTree(this TreeNode node)
     {
-        if (node == null)
-            return "#";
 
-        return $"{node.val},{SerializeTree(node.left)},{SerializeTree(node.right)}";
+        return TreeSerializator.Serialize(node);
     }
 
+    public static TreeNode DeserializeTree(string representation)
+    {
+        return TreeSerializator.Deserialize(representation);
+    }
 
     #endregion
 
