@@ -1,53 +1,61 @@
 ﻿using EdkoSKD.Common.Models;
+using System.Text;
 
 namespace EdkoSKD.Common.Trees;
 
 public class TreeSerializator
 {
-    public static string Serialize(TreeNode node)
+    public static string Serialize(TreeNode root)
+    {
+        var sb = new StringBuilder();
+        SerializeInternal(root, sb);
+        return sb.ToString();
+    }
+
+    private static void SerializeInternal(TreeNode node, StringBuilder sb)
     {
         if (node == null)
-            return "#";
-        return $"{node.val},{Serialize(node.left)},{Serialize(node.right)}";
+        {
+            sb.Append("#,");
+            return;
+        }
+
+        sb.Append(node.val).Append(',');
+        SerializeInternal(node.left, sb);
+        SerializeInternal(node.right, sb);
     }
 
     public static TreeNode? Deserialize(string data)
     {
-        if(data == null)
-        {
+        if (string.IsNullOrEmpty(data) || data == "#")
             return null;
-        }
 
-        int pointer = 0;
+        var values = data.Split(',');
+        int index = 0;
 
-        if(data.Length == 0 || data.Equals("#"))
+        TreeNode? DeserializeInternal()
         {
-            return null;
-        }
-
-        var valueArr = data.Split(',');
-
-        TreeNode? PreOrderConstruct()
-        {
-            if(pointer >=  valueArr.Length)
-            {
-                return null;
-            }
-            if (valueArr[pointer].Equals("#"))
+            if (index >= values.Length)
             {
                 return null;
             }
 
-            var newNode = new TreeNode(int.Parse(valueArr[pointer++]))
+            string token = values[index++];
+
+            if (token == "#")
             {
-                left = PreOrderConstruct()
+                return null;
+            }
+
+            var node = new TreeNode(int.Parse(token))
+            {
+                left = DeserializeInternal(),
+                right = DeserializeInternal()
             };
-            pointer++;
-            newNode.right = PreOrderConstruct();
 
-            return newNode;
+            return node;
         }
 
-        return PreOrderConstruct();
+        return DeserializeInternal();
     }
 }
