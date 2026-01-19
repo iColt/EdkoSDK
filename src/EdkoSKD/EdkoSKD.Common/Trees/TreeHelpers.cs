@@ -169,4 +169,25 @@ public static class TreeHelpers
     }
 
     #endregion
+
+    #region Max Depth
+
+    public static int MaxDepth(this TreeNode root)
+    {
+        
+        int MaxDepthInternal(TreeNode root)
+        {
+            if (root == null)
+            {
+                return 0;
+            }
+
+            return Math.Max(MaxDepthInternal(root.left), MaxDepthInternal(root.right)) + 1;
+
+        }
+
+        return MaxDepthInternal(root);
+    }
+
+    #endregion
 }
