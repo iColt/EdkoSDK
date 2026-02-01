@@ -22,4 +22,20 @@ public static class IntegerHelpers
         return arrNumber;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="number"></param>
+    /// <param name="lowerBoundary">Lower boundary to reduce factorial in combinatory tasks</param>
+    /// <returns></returns>
+    public static decimal Factorial(this int number, int lowerBoundary = 1)
+    {
+        if(number == lowerBoundary)
+        {
+            return lowerBoundary;
+        }
+
+        return number * Factorial(--number, lowerBoundary);
+    }
+
 }
