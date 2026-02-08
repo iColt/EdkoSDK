@@ -190,4 +190,26 @@ public static class TreeHelpers
     }
 
     #endregion
+
+    #region InOrderTraversal To list
+
+
+    public static List<int> InOrderTraversal(this TreeNode root)
+    {
+        var result = new List<int>();
+
+        void DFS(TreeNode node)
+        {
+            if (node == null) return;
+            DFS(node.left);
+            result.Add(node.val);
+            DFS(node.right);
+        }
+
+        DFS(root);
+        return result;
+    }
+
+
+    #endregion
 }
