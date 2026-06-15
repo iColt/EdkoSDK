@@ -38,4 +38,24 @@ public static class IntegerHelpers
         return number * Factorial(--number, lowerBoundary);
     }
 
+    public static int PowerOfTwo(this int number)
+    {
+        if (number == 0)
+        {
+            return 1;
+        }
+
+        if(number > 16)
+        {
+            throw new ArgumentException("Integer does not support value");
+        }
+        int result = 2;
+        for(int i  = 0; i < number; i++)
+        {
+            result = result * number;
+        }
+
+        return result;
+    }
+
 }
